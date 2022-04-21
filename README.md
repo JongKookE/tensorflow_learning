@@ -12,3 +12,13 @@ RF가 단순히 필터의 크기나 윈도우의 크기로 불리기 때문에 E
 아니 그래서 이게 뭔데?? 필터라는거야? 이전 레이어에 필터를 거쳐서 나온 출력 z1 = 3*3, w2라는 2*2 필터를 거치면 당연히 2*2인 z2를 가지겠지 그래서 z2의 셀이 다음 4*4에 해당하는 부분에 의해 결정된다 z2의 ERF는 4*4다 이게 뭔말이야 일단 넘어갈래
 
 # CNNs with Tensorflow
+LeNet5 구조 - 코랩 작성중
+
+# 현대적인 최적화 기법
+Gradient Descent -> 3가지 주의점 
+
+# 고급 최적화 기법
+momentum -> NAG -> Ada Famliy 
+
+# 정규화 기법
+Early stopping -> L1, L2 -> Dropout
