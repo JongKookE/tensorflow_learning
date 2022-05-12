@@ -26,7 +26,25 @@ Early stopping -> L1, L2 -> Dropout
 
 
 # YOLO의 주요개념
-
 Backbone - CNN cell을 거쳐 feature맵을 생성하는 과정 
 Input image -> 2개의 conv layers -> feature map을 생성하는 이미지
 <img width="40%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgHNabnzopsK37QKvjnNERDZQ0nDT3wAfqQ&usqp=CAU"/>
+
+YOLO의 마지막 출력은 w x h x M
+M = B(C+5) B = Bounding Box, C = Classes
+예를 들어 w = 17, h = 17, B = 5(주로 바운딩박스는 5개가 적절하다고 함) , C = 20이라면 17 x 17 x 125의 크기를 가지게 된다.
+
+# 앵커 박스 소개
+위에서 설명하지는 않았지만 바운딩 박스의 좌표를 계산하는데 tx, ty, tw, th를 사용한다.
+네트워크에서 좌표를 직접 가져오는 방식은 객체의 크기가 서로 다르기때문에 큰 오차를 불러올 수 있다. 그래서 앵커박스라는 개념을 도입했다.pro
+앵커박스(prior box)라고도 한다. 네트워크를 훈련시키기 전에 결정되는 바운딩 박스 크기이다. 
+일반적으로 3~25정도의 다양한 사이즈를 갖고 있으며 모든 박스가 객체에 일치할수가 없으므로 가장 근접한 박스를 개선하는데 사용된다.
+가장 근접한 박스를 선택하고 신경망을 이용하여 박스의 크기를 보정하는데 이때 사용되는것이 tx, ty, tw, th
+
+# YOLO가 앵커 박스를 개선하는 방법
+
+# 바운딩박스 사후 처리하는 법
+ 예측된 바운딩박스의 좌표와 크기와 함께 신뢰도와 클래스 확률을 얻게 되므로 신뢰도를 클래슿확률과 곱하고 높은 확률만 유지하게 임계값을 설정하여 해당 임계값을 넘지 못하는 클래스는 지운다.
+ 하지만 바운딩박스를 지워도 여러개의 박스가 겹쳐 있을수있다. 그래서 Non-Maximum Suppression이 필요하다
+ NMS = 확률이 가장 높은 상자와 겹치는 상자를 모두 제거
+ 하나의 상자와 그 밖의 상자 사이의 IoU를 계산한 후 특정 임계값을 넘는 상자를 제거한다.
