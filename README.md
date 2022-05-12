@@ -28,4 +28,4 @@ Early stopping -> L1, L2 -> Dropout
 # YOLO의 주요개념
 
 Backbone - 
-<img width="80%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgHNabnzopsK37QKvjnNERDZQ0nDT3wAfqQ&usqp=CAU"/>
+<img width="40%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgHNabnzopsK37QKvjnNERDZQ0nDT3wAfqQ&usqp=CAU"/>
