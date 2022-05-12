@@ -27,5 +27,6 @@ Early stopping -> L1, L2 -> Dropout
 
 # YOLO의 주요개념
 
-Backbone - 
+Backbone - CNN cell을 거쳐 feature맵을 생성하는 과정 
+Input image -> 2개의 conv layers -> feature map을 생성하는 이미지
 <img width="40%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgHNabnzopsK37QKvjnNERDZQ0nDT3wAfqQ&usqp=CAU"/>
